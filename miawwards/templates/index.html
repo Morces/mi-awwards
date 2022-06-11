@@ -2,6 +2,11 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock styles %}
+
 {% block content %}
 
 <div class="container-fluid" style="margin-top: 5%;overflow-x: hidden;">
@@ -15,7 +20,7 @@
                         class="lazy" width="1900" height="720" alt="">
                     </a> -->
                 </div>
-                <div class="box-content over mi" style="background-image: url(/static/images/summer.png);background-position: center; background-repeat: no-repeat; background-size: contain; height: auto;  overflow-x: hidden;">
+                <div class="box-content over mi" style="background-image: url(/static/images/summer.png);background-position: center; background-repeat: no-repeat; background-size: contain; overflow-x: hidden;">
                     <a href="" class="site-link" aria-label=""></a>
                     <div class="inner vertical-center">
                         <div class="box-info">
