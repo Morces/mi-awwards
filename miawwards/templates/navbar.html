@@ -1,8 +1,8 @@
 {% load crispy_forms_tags %}
 {% load static %}
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar" id="mainNav">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white scrolling-navbar" id="mainNav">
     <div class="container">
-        <a href="" class="navbar-brand"><strong class="mr-4 brand">Awwwards</strong></a>
+        <a href="" class="navbar-brand"><strong class="mr-4 brand" style="font-weight: bolder;">Awwwards.</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,13 +35,13 @@
                     </ul>
                 </li>
 
-               <li class="nav-item"><a href="" class="btn btn-sm btn-primary d-flex login">REGISTER/LOGIN</a></li> 
-                
-                    <button class="btn btn-sm d-flex ml-5 text-white" id="site" data-toggle="modal" data-target=".bd-example-modal-xl" style="border: none; background-color: transparent;">
-                        SUBMIT YOUR SITE 
-                    </button>
-                
-                
+               <li class="nav-item ml-5" id="site"><a href="" class="btn btn-sm text-white d-flex login">REGISTER/LOGIN</a></li> 
+                    <div class="this-btn d-flex ml-5" id="site">
+                        <button class="btn btn-sm text-white" data-toggle="modal" data-target=".bd-example-modal-xl" style="border: none; background-color: transparent;">
+                            SUBMIT YOUR SITE! 
+                        </button>
+                    </div>
+                            
             </ul>
         </div>
     </div>
