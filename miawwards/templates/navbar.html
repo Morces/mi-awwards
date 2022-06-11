@@ -1,0 +1,49 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar" id="mainNav">
+    <div class="container">
+        <a href="" class="navbar-brand"><strong class="mr-4 brand">Awwwards</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <form action="" method="get" class="form-inline">
+                        {% csrf_token %}
+                        <div class="md-form my-0">
+                            <input type= "text" class="form-control mr-sm-2" placeholder="search" name="title" aria-label="search">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav  ms-auto d-flex flex-row">
+                <li class="nav-item dropdown">
+                    <a href="#" id="dropdownMenuLink" data-mdb-toggle="dropdown"
+                       role="button"  class="nav-link dropdown-toggle  hidden-arrow" aria-expanded="false">
+                          <img src="" class="rounded-circle nav-img" alt="dp">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a href="" class="dropdown-item text-center">Profile</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a href="" class="dropdown-item text-center">Edit Profile</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a href="" class="dropdown-item text-center">Logout</a></li>
+                        
+                    </ul>
+                </li>
+
+               <li class="nav-item"><a href="" class="btn btn-sm btn-primary d-flex login">REGISTER/LOGIN</a></li> 
+                
+                    <button class="btn btn-sm d-flex ml-5 text-white" id="site" data-toggle="modal" data-target=".bd-example-modal-xl" style="border: none; background-color: transparent;">
+                        SUBMIT YOUR SITE 
+                    </button>
+                
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
