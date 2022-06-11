@@ -3,6 +3,7 @@ body{
     font-family: 'Roboto' sans-serif;
     background-color: white;
 }
+
 strong.brand{
     font-weight: bolder;
 }
@@ -37,11 +38,13 @@ strong.brand{
     background-repeat:no-repeat;
 }
 .over{
-    background-color: rgba(0, 0, 0, 0.616);
-    height: 60vh;
+    background-color: rgba(0, 0, 0);
+    height: 80vh;
 
 }
 #design{
+    display: flex;
+    flex-direction: row;
     color:white;
     border: 3px solid orange;
     border-radius: 50%;
@@ -53,6 +56,8 @@ strong.brand{
     margin-left:70px;
 }
 .des,.des1,.des2,.des3{
+    display: flex;
+    flex-direction: row;
     color:white;
     border-radius: 50%;
     height:78px;
@@ -81,4 +86,30 @@ strong.brand{
     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
+}
+.js-notes ul.showrating {
+    display: flex;
+    width: 40%;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.js-notes ul.showrating li {
+    list-style: none;
+}
+
+
+
+
+*{
+    margin:0;padding:0
+}
+html{
+    box-sizing:border-box
+}
+*,*:before,*:after{
+    box-sizing:inherit
+}
+article,aside,details,figcaption,figure,footer,header,nav,section{
+    display:block
 }

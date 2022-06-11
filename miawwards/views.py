@@ -1,13 +1,30 @@
+import random
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
-
-from miawwards.forms import UpdateUserForm, UpdateUserProfileForm
+from django.contrib.auth import login, authenticate
+from miawwards.forms import PostForm, SignUpForm, UpdateUserForm, UpdateUserProfileForm
+from miawwards.models import Post
 
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    if request.method == 'POST':
+        form =PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+    else:
+        form = PostForm()
+    try:
+        posts = Post.objects.all()
+        posts = posts[::-1]
+        # a_post = random.randint(0, len(posts)-1)
+        # random_post = posts[a_post]
+    except Post.DoesNotExist:
+        posts = None
+    return render(request, 'index.html', {'posts':posts, 'form':form, })
 
 
 

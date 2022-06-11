@@ -32,7 +32,7 @@ class UpdateUserProfileForm(forms.ModelForm):
         model = Profile
         fields = ('name', 'location', 'profile_picture', 'bio', 'contact')
 
-class RatingsForm(forms.Model):
+class RatingsForm(forms.ModelForm):
     class Meta:
         model = Rating
         fields = ('design', 'usability', 'content')
