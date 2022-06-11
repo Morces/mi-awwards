@@ -1,5 +1,3 @@
-from email import message
-from math import fabs
 import random
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
@@ -39,9 +37,9 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('index')
-        else:
-            form = SignUpForm()
-        return render(request, 'signup.html', {'form':form})
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form':form})
 
 def profile(request, username):
     return render(request, 'profile.html', username)
