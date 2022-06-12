@@ -41,6 +41,9 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form':form})
 
+def logout(request):
+    return redirect(request, 'index')
+
 def profile(request, username):
     return render(request, 'profile.html', username)
 
