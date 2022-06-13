@@ -70,8 +70,8 @@ strong.brand{
     color:white;
     border: 3px solid orange;
     border-radius: 50%;
-    height:90px;
-    width:90px;
+    height:60px;
+    width:60px;
     padding-left:20px;
     padding-top:20px;
     margin-right:10px;
@@ -82,8 +82,8 @@ strong.brand{
     flex-direction: row;
     color:white;
     border-radius: 50%;
-    height:78px;
-    width:78px;
+    height:70px;
+    width:70px;
     padding-top:30%;
     font-size:17px;
 }
@@ -111,7 +111,7 @@ strong.brand{
 }
 .js-notes ul.showrating {
     display: flex;
-    width: 40%;
+    width: 30%;
     margin: auto;
     flex-direction: row;
     justify-content: space-evenly;
