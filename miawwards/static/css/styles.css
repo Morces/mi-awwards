@@ -158,9 +158,29 @@ strong.brand{
 .ting{
     font-size:14px;
 }
+#heart{
+    float:right;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 6px;
+}
 
-
-
-
+#heart:hover{
+    color:blue;
+    border: 1px solid blue;
+}
+#usern{
+    color: #00bdaa;
+}
+.alert{
+    margin:0;
+    padding:0;
+}
+.alert ul li {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+    font-size:12px;
+}
 
 

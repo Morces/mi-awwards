@@ -3,6 +3,7 @@ from random import randint
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from miawwards.forms import PostForm, RatingsForm, SignUpForm, UpdateUserForm, UpdateUserProfileForm
 from miawwards.models import Post, Rating, Profile
@@ -15,6 +16,7 @@ from miawwards.serializers import PostSerializer, ProfileSerializer, UserSeriali
 
 
 # Create your views here.
+
 def index(request):
     if request.method == 'POST':
         form =PostForm(request.POST)
@@ -27,11 +29,11 @@ def index(request):
     try:
         posts = Post.objects.all()
         posts = posts[::-1]
-        # a_post = random.randint(0, len(posts)-1)
-        # random_post = posts[a_post]
+        a_post = random.randint(0, len(posts)-1)
+        random_post = posts[a_post]
     except Post.DoesNotExist:
         posts = None
-    return render(request, 'index.html', {'posts':posts, 'form':form, })
+    return render(request, 'index.html', {'posts':posts, 'form':form, 'random_post':random_post})
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
@@ -61,23 +63,21 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form':form})
 
-def logout(request):
-    return redirect(request, 'index')
-
+@login_required(login_url='login')
 def profile(request, username):
-    return render(request, 'profile.html', username)
+    return render(request, 'profile.html')
 
 def user_profile(request, username):
     user_prof = get_object_or_404(User, username=username)
     if request == user_prof:
-        return redirect('profile', username=username)
+        return redirect('profile', username=request.user.username)
     context = {
         'user_prof':user_prof
 
     }
     return render(request, 'userprofile.html', context)
 
-
+@login_required(login_url='login')
 def edit_profile(request, username):
     user = User.objects.get(username=username)
     if request.method == 'POST':
@@ -87,16 +87,16 @@ def edit_profile(request, username):
             user_form.save()
             prof_form.save()
             return redirect('profile', user.username)
-        else:
-            user_form = UpdateUserForm(instance=request.user)
-            prof_form = UpdateUserProfileForm(instance=request.user.profile)
-        context = {
-            'user_form': user_form,
-            'prof_form': prof_form
-        }
-        return render(request, 'edit.html', context)
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        prof_form = UpdateUserProfileForm(instance=request.user.profile)
+    context = {
+        'user_form': user_form,
+        'prof_form': prof_form,
+    }
+    return render(request, 'edit.html', context)
 
-
+@login_required(login_url='login')
 def project(request, post):
     post = Post.objects.get(title=post)
     ratings = Rating.objects.filter(user=request.user, post=post).first()
