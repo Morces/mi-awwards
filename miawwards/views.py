@@ -1,4 +1,5 @@
 import random
+from random import randint
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
