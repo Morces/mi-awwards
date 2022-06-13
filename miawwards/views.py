@@ -5,7 +5,10 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from miawwards.forms import PostForm, RatingsForm, SignUpForm, UpdateUserForm, UpdateUserProfileForm
-from miawwards.models import Post, Rating
+from miawwards.models import Post, Rating, Profile
+from rest_framework import viewsets
+
+from miawwards.serializers import PostSerializer, ProfileSerializer, UserSerializer
 
 
 
@@ -27,6 +30,20 @@ def index(request):
     except Post.DoesNotExist:
         posts = None
     return render(request, 'index.html', {'posts':posts, 'form':form, })
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
 
 def signup(request):
     if request.method == 'POST':
