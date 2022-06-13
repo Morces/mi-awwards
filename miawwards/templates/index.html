@@ -133,9 +133,9 @@
                 {% for post in posts %}
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <div class="view overlay">
-                            <img src="{{post.photo.url}}" alt="" class="card-img-top">
-                            <a href="{% url 'project' post.title %}">
+                        <div class="view overlay" >
+                            <a href="{% url 'project' post.title %}" style="background-color: rgba(14, 13, 13, 0.164);background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                <img src="{{post.photo.url}}" alt="" class="card-img-top">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
                         </div>

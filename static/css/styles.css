@@ -33,6 +33,7 @@ strong.brand{
 .nav-img{
     height: 30px;
     width: 30px;
+    border-radius: 50%;
 }
 .account-img {
     height: 125px;
@@ -119,7 +120,8 @@ strong.brand{
 .js-notes ul.showrating li {
     list-style: none;
 }
-.overlay{
+.view.overlay{
+    background-color: rgba(14, 13, 13, 0.164);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
