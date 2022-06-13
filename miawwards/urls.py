@@ -1,10 +1,17 @@
+from rest_framework import routers
 from . import views
-from django.urls import path
+from django.urls import path,include
 from django.contrib.auth import views as auth_views
 
+router = routers.DefaultRouter()
+router.register('users', views.UserViewSet)
+router.register('posts', views.PostViewSet)
+router.register('profile', views.ProfileViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('signup/', views.signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', views.logout, name='logout'),

@@ -7,6 +7,8 @@ from django.contrib.auth import login, authenticate
 from miawwards.forms import PostForm, RatingsForm, SignUpForm, UpdateUserForm, UpdateUserProfileForm
 from miawwards.models import Post, Rating, Profile
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from miawwards.serializers import PostSerializer, ProfileSerializer, UserSerializer
 
