@@ -1,5 +1,4 @@
 import random
-from random import randint
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
@@ -61,7 +60,7 @@ def signup(request):
             return redirect('index')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form':form})
+    return render(request, 'registration/signup.html', {'form':form})
 
 @login_required(login_url='login')
 def profile(request, username):
