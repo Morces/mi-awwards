@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from miawwards.forms import PostForm, RatingsForm, SignUpForm, UpdateUserForm, UpdateUserProfileForm
 from miawwards.models import Post, Rating, Profile
 from rest_framework import viewsets
@@ -61,6 +61,10 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form':form})
+
+def logout(request):
+    logout(request)
+    return redirect('index')
 
 @login_required(login_url='login')
 def profile(request, username):
