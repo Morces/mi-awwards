@@ -14,7 +14,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('signup/', views.signup, name='signup'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='index.html'), name='logout'),
     path('account/', include('django.contrib.auth.urls')),
     path('profile/<username>/', views.profile, name='profile'),
     path('<username>/profile', views.user_profile, name='userprofile'),

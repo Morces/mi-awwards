@@ -62,9 +62,6 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form':form})
 
-def logoutView(request):
-    logout(request)
-    return render('index')
 
 @login_required(login_url='login')
 def profile(request, username):
