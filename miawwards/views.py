@@ -48,6 +48,11 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('index')
+
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
